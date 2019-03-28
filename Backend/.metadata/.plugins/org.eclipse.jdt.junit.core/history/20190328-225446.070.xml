@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="TaskTracker" tests="55" started="55" failures="0" errors="0" ignored="0">
+  <testsuite name="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.736">
+    <testcase name="gettaskInDao" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.011"/>
+    <testcase name="whenTaskInserted" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.166"/>
+    <testcase name="deletetaskInDao" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.009"/>
+    <testcase name="testInsertinDao" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.01"/>
+    <testcase name="updatetaskInDao" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.012"/>
+    <testcase name="whenValidName_thenTaskShouldBeFound" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.011"/>
+    <testcase name="whengetTaskIdbyParentNProject" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.012"/>
+    <testcase name="whenUpdateTask" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.009"/>
+    <testcase name="whendeleteTask" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.014"/>
+    <testcase name="getTaskIdbyParentNProjectInDao" classname="com.capsule.TaskTracker.DAOTest.TaskDAOTest" time="0.482"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.DAOTest.ProjectDaoTest" time="20.947">
+    <testcase name="whendeleteProject" classname="com.capsule.TaskTracker.DAOTest.ProjectDaoTest" time="0.009"/>
+    <testcase name="whengetProjectByPName" classname="com.capsule.TaskTracker.DAOTest.ProjectDaoTest" time="0.009"/>
+    <testcase name="whenUpdateProject" classname="com.capsule.TaskTracker.DAOTest.ProjectDaoTest" time="0.011"/>
+    <testcase name="whenValidName_thenProjectShouldBeFound" classname="com.capsule.TaskTracker.DAOTest.ProjectDaoTest" time="20.918"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.componentTest.UserControllerTest" time="32.908">
+    <testcase name="createUserNegTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="1.234"/>
+    <testcase name="retreiveUserList" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.507"/>
+    <testcase name="getUserByProjectIdTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.128"/>
+    <testcase name="retrieveUserNegTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.027"/>
+    <testcase name="updateUserNegTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.027"/>
+    <testcase name="updateUserTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.01"/>
+    <testcase name="createUserTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.037"/>
+    <testcase name="retrieveUserExcepTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.032"/>
+    <testcase name="deleteUserNegTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.094"/>
+    <testcase name="retrieveUserTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="0.049"/>
+    <testcase name="deleteUserTest" classname="com.capsule.TaskTracker.componentTest.UserControllerTest" time="30.761"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.TaskTrackerApplicationTests" time="7.265">
+    <testcase name="contextLoads" classname="com.capsule.TaskTracker.TaskTrackerApplicationTests" time="7.265"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="2.477">
+    <testcase name="updateProjectTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.071"/>
+    <testcase name="retreivTaskist" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.017"/>
+    <testcase name="retreivCompletedTaskList" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.02"/>
+    <testcase name="deleteProjectTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.035"/>
+    <testcase name="retreiveProjectbyNameTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.032"/>
+    <testcase name="createProjectTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.013"/>
+    <testcase name="updateProjectNegTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.015"/>
+    <testcase name="retreiveProjectList" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.009"/>
+    <testcase name="retreiveProjectTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="0.01"/>
+    <testcase name="deleteProjectNegTest" classname="com.capsule.TaskTracker.componentTest.ProjectControllerTest" time="2.255"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.DAOTest.ParentDaoTest" time="0.47">
+    <testcase name="whenParentInserted" classname="com.capsule.TaskTracker.DAOTest.ParentDaoTest" time="0.008"/>
+    <testcase name="whenValidName_thenParentShouldBeFound" classname="com.capsule.TaskTracker.DAOTest.ParentDaoTest" time="0.462"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.DAOTest.UserDaoTest" time="1.257">
+    <testcase name="whengetUserByPName" classname="com.capsule.TaskTracker.DAOTest.UserDaoTest" time="0.008"/>
+    <testcase name="whenUserInserted" classname="com.capsule.TaskTracker.DAOTest.UserDaoTest" time="0.006"/>
+    <testcase name="whendeleteUser" classname="com.capsule.TaskTracker.DAOTest.UserDaoTest" time="0.004"/>
+    <testcase name="whenUpdateProject" classname="com.capsule.TaskTracker.DAOTest.UserDaoTest" time="0.007"/>
+    <testcase name="whenValidName_thenUserShouldBeFound" classname="com.capsule.TaskTracker.DAOTest.UserDaoTest" time="1.232"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.componentTest.ParentControllerTest" time="4.482">
+    <testcase name="retreiveParentList" classname="com.capsule.TaskTracker.componentTest.ParentControllerTest" time="0.016"/>
+    <testcase name="getParentTaskTest" classname="com.capsule.TaskTracker.componentTest.ParentControllerTest" time="0.019"/>
+    <testcase name="createParentTest" classname="com.capsule.TaskTracker.componentTest.ParentControllerTest" time="4.446"/>
+  </testsuite>
+  <testsuite name="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.427">
+    <testcase name="retreiveTaskList" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.027"/>
+    <testcase name="completeTaskTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.013"/>
+    <testcase name="createTaskNegTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.123"/>
+    <testcase name="createTaskTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.011"/>
+    <testcase name="completeTaskNegTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.025"/>
+    <testcase name="getTaskIdbyParentNProjectTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.111"/>
+    <testcase name="editTaskNegTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.018"/>
+    <testcase name="retrieveTaskTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.024"/>
+    <testcase name="editTaskTest" classname="com.capsule.TaskTracker.componentTest.TaskControllerTest" time="0.074"/>
+  </testsuite>
+</testrun>
