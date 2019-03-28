@@ -1,0 +1,40 @@
+package com.capsule.TaskTracker.entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Table(name="project_table")
+public class Project {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int projectId ;
+	
+	@Column(name="project")
+	@JsonProperty("project")
+	private String project;
+	
+	@Column(name="start_date")
+	@JsonProperty("startDate")
+	private Date startDate;
+	
+	
+	@Column(name="end_date")
+	@JsonProperty("endDate")
+	private Date endDate;
+	
+	@Column(name="priority")
+	@JsonProperty("priority")
+	private Date priority;
+	
+
+}
