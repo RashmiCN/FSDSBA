@@ -10,7 +10,7 @@ pipeline {
     stage('Build Backend Application') {
       steps {
         echo 'Building Backend..'
-        bat 'cd Backend/FinalBackend && mvn clean'
+        bat 'cd Backend  && cd FinalBackend && mvn clean'
       }
     }
     stage('Test Frontend Application') {
@@ -22,7 +22,7 @@ pipeline {
     stage('Test and install Backend Application') {
       steps {
         echo 'Testing Backend..'
-        bat 'cd Backend/FinalBackend && mvn install'
+        bat 'cd Backend  && cd FinalBackend && mvn install'
       }
     }
     stage('Report JUnit') {
