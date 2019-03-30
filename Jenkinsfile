@@ -1,9 +1,5 @@
 pipeline {
   agent any
-  tools { 
-        maven 'M2_HOME' 
-        jdk 'JAVA_HOME' 
-    }
   stages {
     stage('Build Frontend Application') {
       steps {
@@ -29,10 +25,9 @@ pipeline {
         bat 'cd Backend && cd TaskTracker && mvn install'
       }
     }
-    stage('Report JUnit') {
-      steps {
-        junit 'target/surefire-reports/**/*.xml'
-      }
-    }
+  }
+  tools {
+    maven 'M2_HOME'
+    jdk 'JAVA_HOME'
   }
 }
