@@ -16,7 +16,7 @@ services:
   #  what to give here???
       - /data/mysql
 
-  tasktracker:
+  tasktrackerbackend:
     image: rashmicn/backend-task-tracker
     build: Backend/TaskTracker
     restart: always
@@ -29,3 +29,12 @@ services:
       - 8083:8083
     expose: 
       - 8083
+
+  tasktrackerfrontend:
+    image: rashmicn/frontend-task-tracker
+    build: FinalFrontEnd
+    network_mode: host
+    ports: 
+      - "4200:4200"
+
+  
