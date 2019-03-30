@@ -1,12 +1,12 @@
 
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
-ARG JAVA_OPTS
-ENV JAVA_OPTS=$JAVA_OPTS
-ENV MYSQL_DATABASE=microcred
-ENV MYSQL_USER=root
-ENV MYSQL_PASSWORD=pass@word1
-ENV MYSQL_CI_URL=jdbc:mysql://db:3306/microcred
+# ARG JAVA_OPTS
+# ENV JAVA_OPTS=$JAVA_OPTS
+# ENV MYSQL_DATABASE=microcred
+# ENV MYSQL_USER=root
+# ENV MYSQL_PASSWORD=pass@word1
+# ENV MYSQL_CI_URL=jdbc:mysql://db:3306/microcred
 ADD target/TaskTracker-0.0.1-SNAPSHOT.war tasktracker.war
 EXPOSE 8083
 #ENTRYPOINT exec java $JAVA_OPTS -war tasktracker.war
