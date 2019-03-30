@@ -6,9 +6,9 @@ ENV JAVA_OPTS=$JAVA_OPTS
 ENV MYSQL_DATABASE=microcred
 ENV MYSQL_USER=root
 ENV MYSQL_PASSWORD=pass@word1
-ENV MYSQL_CI_URL=jdbc:mysql://localhost:3306/microcred
+ENV MYSQL_CI_URL=jdbc:mysql://db:3306/microcred
 ADD target/TaskTracker-0.0.1-SNAPSHOT.war tasktracker.war
 EXPOSE 8083
 #ENTRYPOINT exec java $JAVA_OPTS -war tasktracker.war
 # For Spring-Boot project, use the entrypoint below to reduce Tomcat startup time.
-ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -war tasktracker.war
+ENTRYPOINT ["java","-jar","tasktracker.war"]
