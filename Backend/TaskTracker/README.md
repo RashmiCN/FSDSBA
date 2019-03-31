@@ -1,5 +1,7 @@
-# CapsuleProjectBackend
-Spring boot hibernate backend for capsule project
-UI : Refer CapsuleProject repository
-This repo is the backend for CapsuleProject
-Used : Spring Boot Hibernate and MySql DB for CRUD operations via REST calls from UI
+# Backend 
+
+Run TaskTrackerApplication as Java Application. Backend is mappend to port 8083, i.e.,`http://localhost:8083/`.
+
+Run project as 'mvn install' to regenerate the .war files. Test reports are accessible in /target folder. 
+
+For component level test reports run the classes in src/test/java individually.
