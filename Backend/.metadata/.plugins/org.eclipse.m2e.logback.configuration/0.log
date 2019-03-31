@@ -12861,3 +12861,21 @@ org.eclipse.core.runtime.CoreException: Variable references non-existent resourc
 2019-03-31 13:19:40,170 [Worker-352: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-03-31 13:19:40,171 [Worker-352: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-03-31 13:19:40,240 [Worker-352: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 13:19:40,241 [Worker-352: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Admin\Desktop\CapsuleProject\Backend\TaskTracker\src\test\resources
+2019-03-31 13:31:34,625 [Worker-361: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 13:31:34,625 [Worker-361: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-03-31 13:31:34,625 [Worker-361: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-03-31 13:31:34,625 [Worker-361: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 13:31:34,625 [Worker-361: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Admin\Desktop\CapsuleProject\Backend\TaskTracker\src\test\resources
+2019-03-31 15:17:24,301 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 15:17:24,301 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-03-31 15:17:24,301 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-03-31 15:17:24,317 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 15:17:24,317 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Admin\Desktop\CapsuleProject\Backend\TaskTracker\src\test\resources
+2019-03-31 15:24:48,258 [Worker-373: Launching Executing install in C__Users_Admin_Desktop_CapsuleProject_Backend_TaskTracker] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\Admin\Desktop\CapsuleProject\Backend\TaskTracker
+2019-03-31 15:24:48,258 [Worker-373: Launching Executing install in C__Users_Admin_Desktop_CapsuleProject_Backend_TaskTracker] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2019-03-31 15:27:20,654 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 15:27:20,654 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-03-31 15:27:20,654 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-03-31 15:27:20,685 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-31 15:27:20,685 [Worker-372: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Admin\Desktop\CapsuleProject\Backend\TaskTracker\src\test\resources
