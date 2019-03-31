@@ -28,7 +28,7 @@ export class ViewTaskComponent implements OnInit {
   ngOnInit() {
     this.getProjects();
   }
-
+//  save the selected project to see the tasks
   saveProject() {
     const temp = this.selectedProject.split('-');
     this.project = temp[1];
@@ -36,7 +36,7 @@ export class ViewTaskComponent implements OnInit {
     $('#ProjectModal').modal('hide');
   }
 
-
+//  we can order tasks by start/end date priority completion status
   sort(basis) {
     if (basis === 'startDate') {
       this.tasks.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
@@ -84,7 +84,7 @@ export class ViewTaskComponent implements OnInit {
       this.clearFilter();
     });
   }
-
+// route to add task screen to edit task.
   editTask(id) {
     this.router.navigate(['/add-task'], {
       queryParams: {

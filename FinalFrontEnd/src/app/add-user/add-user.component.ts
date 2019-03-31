@@ -30,7 +30,7 @@ export class AddUserComponent implements OnInit {
     this.createForm();
     this.getUsersList();
   }
-
+// Validators
   createForm() {
     this.addUserForm = this.fb.group({
       firstName: [null, Validators.required],
@@ -38,7 +38,7 @@ export class AddUserComponent implements OnInit {
       employeeId: [null, Validators.required],
     });
   }
-
+// on add click
   onSubmit() {
     console.log('user submitted');
     this.user_keyed = this.addUserForm.value;
@@ -52,7 +52,7 @@ export class AddUserComponent implements OnInit {
       console.log(error);
     });
   }
-
+// View users added
   getUsersList() {
     this.users_list = [];
     this.userService.getusers().subscribe(data => {
@@ -64,7 +64,7 @@ export class AddUserComponent implements OnInit {
       console.log(error);
     });
   }
-
+// sort users based on empl id, last name first name
   sort(basis) {
     // sort by employeeId
     if (basis === 'employeeId') {
@@ -99,7 +99,7 @@ export class AddUserComponent implements OnInit {
       });
     }
   }
-
+// delete the user
   onDelete(user: IUser) {
     console.log(user);
     this.userService.deleteUser(user).subscribe(data => {
@@ -108,7 +108,7 @@ export class AddUserComponent implements OnInit {
       console.log(error);
     });
   }
-
+// process that happens when user is selected from view portion for edit
   onEdit(id) {
     console.log(this.filtered_users_list);
     console.log('on edit user........' + id);
@@ -126,14 +126,11 @@ export class AddUserComponent implements OnInit {
       console.log(error);
     });
   }
-
+// when user actually edits data and clicks update
   onEditSave() {
     console.log(this.addUserForm.value);
     console.log('getting sqaved result id on save' + this.edit_id);
     this.user_keyed = this.addUserForm.value;
-    // this.user_keyed.firstName = this.addUserForm.get('firstName').value;
-    // this.user_keyed.lastName = this.addUserForm.get('lastName').value;
-    // this.user_keyed.employeeId = this.addUserForm.get('employeeId').value;
     this.user_keyed.userId = this.edit_id;
     console.log(this.user_keyed);
     this.userService.updateuser(this.user_keyed).subscribe(data => {
@@ -147,7 +144,7 @@ export class AddUserComponent implements OnInit {
       console.log(error);
     });
   }
-
+// reset edits
   cancelEdit() {
     this.addUserForm.reset();
     this.editable = false;

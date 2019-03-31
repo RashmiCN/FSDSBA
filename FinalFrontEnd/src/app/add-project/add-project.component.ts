@@ -59,6 +59,7 @@ export class AddProjectComponent implements OnInit {
               private filterProjectPipe: FilterProjectPipe
               ) { }
 
+// On init , set default dates,  subscribe to list of users (we need it)
   ngOnInit() {
     this.setDefaultDate();
     this.createForm();
@@ -70,11 +71,13 @@ export class AddProjectComponent implements OnInit {
     this.listProjects();
   }
 
+// date formatter . we dont need lengthy unecessary data, so lets have whats needed
   dateFormatter(date: Date, format: string): any {
     if (!date) { return null; }
     return new DatePipe('en-US').transform(date, format);
   }
 
+// Needed on init and to have default dates on add.
   setDefaultDate() {
     const date1 = new Date();
     const date2 = new Date(date1.setDate(date1.getDate() + 1));
@@ -93,6 +96,7 @@ export class AddProjectComponent implements OnInit {
     }
   }
 
+// Form creation validators go here.
   createForm() {
     this.addProjectForm = this.fb.group({
       project: [null, Validators.required],
@@ -104,6 +108,8 @@ export class AddProjectComponent implements OnInit {
     }, { validator: this.DateValidator() });
   }
 
+
+// reset procedures go here
   resetForm() {
     this.addProjectForm.reset({
       priority: 0,
@@ -116,6 +122,7 @@ export class AddProjectComponent implements OnInit {
     this.selectedUserId = null;
   }
 
+// Check box select process, defualt date or enable user provision??
   onSelect(event) {
     const status = event.target.checked;
     console.log(status);
@@ -129,6 +136,7 @@ export class AddProjectComponent implements OnInit {
     }
   }
 
+// end must not be before start .. doesnt make sense you see
   DateValidator() {
     return (group: FormGroup): { [key: string]: any } => {
       const startDate = new Date(group.controls.startDate.value);
@@ -143,6 +151,7 @@ export class AddProjectComponent implements OnInit {
     };
   }
 
+// Lets add projects. Procedures below
   onAdd() {
     console.log(this.addProjectForm.value);
     this.addProject = this.addProjectForm.value;
@@ -164,29 +173,18 @@ export class AddProjectComponent implements OnInit {
     });
   }
 
-  updateUserOnAdd(useridsent: string){
+//  Updating..................
+  updateUserOnAdd(useridsent: string) {
     this.projectService.getProjectByPName(this.addProject.project).subscribe(projectret => {
-      // console.log('this is what we got' + projectret.projectId);
       this.saveProjectId = projectret.projectId;
-      // console.log('saved project 11'+ this.saveProjectId);
     }, error => {
         this.error = 'Error getting project by name!!';
         console.log(error);
     });
-    
+    // make sure users are tagged to right projects as well!!!!
     this.userService.getuser(useridsent).subscribe(result => {
-      // console.log('user id sent ' + useridsent);
-      // console.log('result ' + result.userId);
-      // console.log('saved project ' + this.saveProjectId);
       result.projectId = this.saveProjectId;
       this.updateUser = result;
-      // this.updateUser.employeeId = result.employeeId;
-      // this.updateUser.firstName = result.firstName;
-      // this.updateUser.lastName = result.lastName;
-      // this.updateUser.taskId = result.taskId;
-      // console.log("before setting pid" + this.updateUser);
-      // this.updateUser.projectId = this.saveProjectId;
-      // console.log('this is our user ' + this.updateUser);
       this.userService.updateuser(this.updateUser).subscribe(updates => {
         console.log('user updated!!!!!!!!!!!!!!!!!!');
       }, error => {
@@ -198,7 +196,7 @@ export class AddProjectComponent implements OnInit {
         console.log(error);
     });
   }
-
+// we need the data selected from the modal
   saveUser() {
     const temp = this.selectedUser.split('-');
     this.selectedUserId = temp[0].trim();
@@ -208,6 +206,7 @@ export class AddProjectComponent implements OnInit {
     $('#UserModal').modal('hide');
   }
 
+// this goes to view screen. we list out all projects added there
   listProjects() {
     this.projectService.getProjects().subscribe(data => {
       this.projects = data;
@@ -234,11 +233,14 @@ export class AddProjectComponent implements OnInit {
 
   }
 
+// when we are not filtering on parameter then list'em all
   clearFilter() {
     this.listProjects();
     this.searchText = null;
   }
 
+
+// we have option to sort based on start date, end date priority and completion
   sort(basis) {
     console.log('sorting...........................');
     if (basis === 'startDate') {
@@ -252,6 +254,7 @@ export class AddProjectComponent implements OnInit {
     }
   }
 
+//  cancel update process. reset the form
   cancelEdit() {
     this.resetForm();
     this.editable = false;
@@ -259,6 +262,7 @@ export class AddProjectComponent implements OnInit {
     this.error = null;
   }
 
+// Process that happens when user selects the project from the view portion
   onEdit(projectId) {
     this.projectService.getProject(projectId).subscribe(result => {
       console.log('result is', result);
@@ -307,12 +311,8 @@ export class AddProjectComponent implements OnInit {
     });
   }
 
+// process that happens when actual editing is done and submitted
   onEditSave() {
-    // project.project = this.titleCasePipe.transform(this.addProjectForm.get('project').value);
-    // project.startDate = this.addProjectForm.get('startDate').value;
-    // project.endDate = this.addProjectForm.get('endDate').value;
-    // project.priority = this.addProjectForm.get('priority').value;
-    // project.userId = this.selectedUser.split('-')[0].trim();
     this.editProject = this.addProjectForm.value;
     if (this.selectedUser != null) {
       this.editProject.userId = this.selectedUser.split('-')[0].trim();
@@ -381,7 +381,7 @@ export class AddProjectComponent implements OnInit {
       console.log(error);
     });
   }
-
+// filter on search
   onSearch(text) {
     this.filteredProjects = this.filterProjectPipe.transform(this.projects, text);
   }

@@ -42,21 +42,6 @@ public class TaskDAO {
 		return true;
 	}
 	
-//	@Transactional
-//	public ParentTask inserParentTask(Task task) {
-////		System.out.println("inserting Parent...............");
-//		Session currentSession = entityManager.unwrap(Session.class);
-//
-////		Set the parent task name -- id is auto inc
-//		ParentTask pTask = new ParentTask(task.getParentId(),task.getTask());
-//
-////		save it
-//		currentSession.save(pTask);
-////		System.out.println("parent id created  " + pTask);
-//		
-//		return pTask;
-//	}
-//
 
 	public Task getTask(int id) {
 		// TODO Auto-generated method stub

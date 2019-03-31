@@ -25,19 +25,21 @@ import com.capsule.TaskTracker.service.ParentService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class ParentControllerRest {
 	
+//	Parent Rest Controller for parent_task table
+//	accepts JSON for insert and sends list of parent tasks
+	
 	@Autowired
 	ParentService parentService;
 	
-	 //Get Task List
+	 // Get Parent Task List
 		@GetMapping(value="/getParentTasks")
 		@Produces({"application/json"})
 		@ResponseBody
 		public List<ParentTask> getParentTasks(){
-//			System.out.println("contorller");
 			return parentService.getParentTasks();
 		}
 		
-		//Get Task List
+		//Get Parent task by parent task id
 		@GetMapping(value="/getParentTask/{id}")
 		@Produces({"application/json"})
 		@ResponseBody
@@ -46,7 +48,7 @@ public class ParentControllerRest {
 			return parentService.getParentTask(id);
 		}
 		
-		// Create Tasks
+		// Create ParentTask
 		@CrossOrigin(origins = "http://localhost:4200")
 		@PostMapping(value="/addParentTask/{pname}")
 		@Consumes({"application/json"})
@@ -57,14 +59,6 @@ public class ParentControllerRest {
 			boolean isCreated = false;
 			ParentTask parentTask = new ParentTask(pname);
 			isCreated = parentService.createParentTask(parentTask);
-			
-//			if(isCreated){
-//				return new ResponseEntity<String>(HttpStatus.CREATED);
-//			} else {
-////				return new ResponseEntity<Product>(HttpStatus.OK);
-//				
-//				return ResponseEntity.status(HttpStatus.OK).header("message", "not created").build();
-//			}
 			return pname;
 		}
 

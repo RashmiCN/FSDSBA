@@ -54,7 +54,8 @@ export class AddTaskComponent implements OnInit {
               private titleCasePipe: TitleCasePipe,
               private router: Router,
               private route: ActivatedRoute) { }
-
+// check for edits, get projects for select. we see tasks by project now. 
+// control comes here for update of task as well.
   ngOnInit() {
     this.projectService.getProjects().subscribe(data => {
       this.projects = data;
@@ -69,7 +70,7 @@ export class AddTaskComponent implements OnInit {
     });
     this.setDefaultDate()
     this.createForm();
-
+// update procedure from view task
     this.wstaskId = this.route.snapshot.queryParamMap.get('taskId');
     if (this.wstaskId) {
       this.editable = true;
@@ -80,7 +81,6 @@ export class AddTaskComponent implements OnInit {
           task: data.task,
           priority: data.priority,
           ifParent: false,
-          // parentTask: data.parentTaskId ? data.parentTaskId['parentTaskName'] : null,
           startDate: this.dateFormatter(new Date(data.startDate), 'yyyy-MM-dd'),
           endDate: this.dateFormatter(new Date(data.endDate), 'yyyy-MM-dd'),
         })
@@ -89,7 +89,6 @@ export class AddTaskComponent implements OnInit {
             project: result.project
           })
           this.selectedProject = result.projectId + '-' + result.project;
-          console.log('comehere for modal11111111111111111');
           this.getParentTasks(result.projectId);
         })
         this.userService.getuserByProjectId(data.projectId).subscribe(res => {
@@ -106,18 +105,11 @@ export class AddTaskComponent implements OnInit {
           })
           this.selectedParent = data.parentTaskId;
         })
-        // this.userService.getuser(data.userId).subscribe(res => {
-        //   this.addTaskForm.patchValue({
-        //     user: res.firstName + ' ' + res.lastName
-        //   })
-        //   this.selectedUser = res.userId + '-' + res.firstName + ' ' + res.lastName;
-        // })
         this.addTaskForm.get('ifParent').disable();
-        // this.selectedParent = data.parentTaskId ? data.parentTaskId['parentId'] + '-' + data.parentTaskId['parentTaskName'] : null;
       })
     }
   }
-
+// defaults
   setDefaultDate() {
     let date1 = new Date();
     let date2 = new Date(date1.setDate(date1.getDate() + 1));
@@ -129,7 +121,7 @@ export class AddTaskComponent implements OnInit {
     if (!date) { return null; }
     return new DatePipe("en-US").transform(date, format);
   }
-
+// add task validators
   createForm() {
     this.addTaskForm = this.fb.group({
       project: [{ value: null, disabled: true }, Validators.required],
@@ -142,7 +134,7 @@ export class AddTaskComponent implements OnInit {
       user: [{ value: null, disabled: true }, Validators.required]
     }, { validator: this.DateValidator() });
   }
-
+// Reset form procedure
   resetForm() {
     this.error = null;
     this.searchProject = null;
@@ -163,7 +155,7 @@ export class AddTaskComponent implements OnInit {
     this.addTaskForm.get('endDate').enable();
     this.addTaskForm.get('ifParent').enable();
   }
-
+// Making sure dates make sense
   DateValidator() {
     return (group: FormGroup): { [key: string]: any } => {
       let startDate = new Date(group.controls["startDate"].value);
@@ -177,7 +169,7 @@ export class AddTaskComponent implements OnInit {
       return {};
     }
   }
-
+// when we select project from modal we saave it, we need it in future
   saveProject() {
     this.clearParent();
     let temp = this.selectedProject.split('-')
@@ -188,7 +180,7 @@ export class AddTaskComponent implements OnInit {
     this.getParentTasks(temp[0]);
     console.log('this is the task id' + temp[0]);
   }
-
+// get all the parent tasks
   getParentTasks(id) {
     // this.taskService.getParents(id).subscribe(data => {
     this.taskService.getParents().subscribe(data => {
@@ -198,9 +190,9 @@ export class AddTaskComponent implements OnInit {
       $('#ProjectModal').modal('hide');
     }, error => {
       console.log(error);
-    })
+    });
   }
-
+// just like project save parent from modal as well
   saveParent() {
     let temp = this.selectedParent.split('-')
     this.addTaskForm.patchValue({
@@ -208,7 +200,7 @@ export class AddTaskComponent implements OnInit {
     });
     $('#ParentModal').modal('hide');
   }
-
+// same with user
   saveUser() {
     let temp = this.selectedUser.split('-')
     this.addTaskForm.patchValue({
@@ -216,7 +208,9 @@ export class AddTaskComponent implements OnInit {
     });
     $('#UserModal').modal('hide');
   }
-
+// we are adding paert or child?
+// if parent turn the child form necessities off. not needed
+// child task- enable all fields. parent is needed for child tasks.
   formStatusValid() {
     if (this.addTaskForm.get('ifParent').value == 'true') {
       return !this.addTaskForm.valid || this.addTaskForm.get('project').value;
@@ -229,17 +223,13 @@ export class AddTaskComponent implements OnInit {
         !this.addTaskForm.get('user').value;
     }
   }
-
+// Add protocols
   onAdd() {
     if (this.addTaskForm.get('ifParent').value) {
       console.log('Parent task');
-      // this.addParent.parentId = parseInt(this.selectedProject.split('-')[0].trim(), 11);
-      // this.addParent.parentTaskName = this.titleCasePipe.transform(this.addTaskForm.get('task').value);
       this.tempTask = this.addTaskForm.value;
       this.savePTasNm = this.tempTask.task;
       console.log('this is intermediate task', this.savePTasNm );
-      // this.addParent.parentTaskName = this.savePTasNm ;
-      // console.log('this is Parent tobe inserted', this.addParent);
       this.taskService.addParent(this.savePTasNm).subscribe(data => {
         this.resetForm();
         this.error = null;
@@ -254,10 +244,6 @@ export class AddTaskComponent implements OnInit {
       this.addTask.projectId = this.selectedProject.split('-')[0].trim();
       this.addTask.userId = this.selectedUser.split('-')[0].trim();
       this.addTask.parentTaskId = this.selectedParent ? this.selectedParent.split('-')[0].trim() : null;
-      // subTask.priority = this.addTaskForm.get('priority').value;
-      // subTask.startDate = this.addTaskForm.get('startDate').value;
-      // subTask.endDate = this.addTaskForm.get('endDate').value;
-      // subTask.task = this.titleCasePipe.transform(this.addTaskForm.get('task').value);
       console.log(this.addTask);
       this.taskService.addTask(this.addTask).subscribe(data => {
         console.log(this.addTask);
@@ -270,7 +256,7 @@ export class AddTaskComponent implements OnInit {
       });
     }
   }
-
+// updating user when task changes 
   updateUser() {
     console.log('in update user');
     console.log('lets see if we stil have add task', this.addTask)
@@ -318,10 +304,6 @@ export class AddTaskComponent implements OnInit {
     this.editTask = this.addTaskForm.value;
 
     this.editTask.parentTaskId = this.selectedParent ;
-    // subTask.priority = this.addTaskForm.get('priority').value;
-    // subTask.startDate = this.addTaskForm.get('startDate').value;
-    // subTask.endDate = this.addTaskForm.get('endDate').value;
-    // subTask.task = this.titleCasePipe.transform(this.addTaskForm.get('task').value);
     this.editTask.projectId = this.selectedProject.split('-')[0].trim();
     this.editTask.userId = this.selectedUser.split('-')[0].trim();
     this.editTask.taskId = this.wstaskId;
