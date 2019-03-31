@@ -12,15 +12,15 @@ services:
     ports:
       - "3306:3306"
     restart: always
+    network_mode: host
     volumes:
-  #  what to give here???
-      - /data/mysql
+     - /opt/microcred/mysqldb:/var/lib/mysql  
 
   tasktracker:
     # image: rashmicn/backend-task-tracker
     build: .
     restart: always
-    # network_mode: host
+    network_mode: host
     depends_on:
       - db 
     ports:
