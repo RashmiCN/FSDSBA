@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2.3'
 
 services:
   db:
@@ -11,10 +11,10 @@ services:
       - MYSQL_PASSWORD=pass@word1
     ports:
       - "3306:3306"
-   restart: always
-   network_mode: host
-   volumes:
-     - - /opt/microcred/mysqldb:/var/lib/mysql
+    restart: always
+    network_mode: host
+    volumes:
+      - /opt/microcred/mysqldb:/var/lib/mysql
 
   tasktrackerbackend:
     image: backend-task-tracker
@@ -36,4 +36,3 @@ services:
       - 4200:4200
     expose:
       - 4200
-  
