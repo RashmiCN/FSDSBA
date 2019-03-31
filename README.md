@@ -30,5 +30,3 @@ For component level test reports run the classes in src/test/java individually.
         $ docker build -t .
         Spring Boot: Navigate to Backend/TaskTracker
         $ docker-compose up -- build
-        All at a time
-        $ docker compose up --build
