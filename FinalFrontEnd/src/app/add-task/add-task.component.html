@@ -13,7 +13,7 @@
             [disabled]="editable">Search</button>
         </div>
       </div>
-  
+
       <div class="row">
         <div class="col-md-2">
           <label>Task:</label>
@@ -22,7 +22,7 @@
           <input type="text" class="form-control" formControlName="task" id="task">
         </div>
       </div>
-  
+
       <div class="row" style="margin-top:10px; margin-bottom:10px;">
         <div class="col-md-2"></div>
         <div class="col-md-6" >
@@ -31,7 +31,7 @@
           <label class="form-check-label" for="setTask">Parent Task</label>
         </div>
       </div>
-  
+
       <div class="row">
         <div class="col-md-2">
           <label>Priority:</label>
@@ -40,7 +40,7 @@
           <input type="range" class="custom-range" id="priority" min="0" max="30" step="1" formControlName="priority">
         </div>
       </div>
-  
+
       <div class="row">
         <div class="col-md-2">
           <label>Parent Task:</label>
@@ -53,7 +53,7 @@
             [disabled]="addTaskForm.get('ifParent').value || !addTaskForm.get('project').value">Search</button>
         </div>
       </div>
-  
+
       <div class="row">
         <div class="col-md-2">
           <label>Start:</label>
@@ -68,7 +68,7 @@
           <input type="date" class="form-control" formControlName="endDate" id="endDate">
         </div>
       </div>
-  
+
       <div class="row">
         <div class="col-md-2">
           <label>User:</label>
@@ -81,26 +81,26 @@
             [disabled]="addTaskForm.get('ifParent').value">Search</button>
         </div>
       </div>
-  
+
       <div class="row">
         <div class="col-md-2">
         </div>
         <!-- <div class="col-md-5">
         </div> -->
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-info" id="add" [disabled]="((this.addTaskForm.get('ifParent').value) ? false : !(this.addTaskForm.get('user').value)) 
+        <div class="col-md-4">  
+          <button type="submit" class="btn btn-info" id="add" [disabled]="((this.addTaskForm.get('ifParent').value) ? false : !(this.addTaskForm.get('user').value))
           || !(this.addTaskForm.valid)" *ngIf="!editable">ADD</button>
-          <button type="button" style="margin-left: 5px" class="btn btn-secondary" id="add" [disabled]="((this.addTaskForm.get('ifParent').value) ? false : !(this.addTaskForm.get('user').value)) 
+          <button type="button" style="margin-left: 5px" class="btn btn-secondary" id="add" [disabled]="((this.addTaskForm.get('ifParent').value) ? false : !(this.addTaskForm.get('user').value))
           || !(this.addTaskForm.valid)" *ngIf="editable" (click)="updateTask()">UPDATE</button>
           <button type="button" class="btn btn-dark" style="margin-left: 5px" id="reset" (click)="resetForm()" *ngIf="!editable">RESET</button>
           <button type="button" class="btn btn-danger" style="margin-left: 5px" id="reset" (click)="cancelEdit()" *ngIf="editable">CANCEL</button>
-  
+
         </div>
       </div>
-  
+
     </form>
   </div>
-  
+
   <!--Project Modal-->
   <div class="modal fade" id="ProjectModal" tabindex="-1" role="dialog" aria-labelledby="ProjectModalLabel"
     aria-hidden="true">
@@ -133,7 +133,7 @@
       </div>
     </div>
   </div>
-  
+
   <!--Parent Modal-->
   <div class="modal fade" id="ParentModal" tabindex="-1" role="dialog" aria-labelledby="ParentModalLabel"
     aria-hidden="true">
@@ -168,7 +168,7 @@
       </div>
     </div>
   </div>
-  
+
   <!--User Modal-->
   <div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-labelledby="UserModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

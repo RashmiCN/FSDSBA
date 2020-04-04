@@ -22,7 +22,7 @@ export class AddTaskComponent implements OnInit {
 
   wstaskId: string;
   addTaskForm: FormGroup;
-  today: Date;
+  today: Date; 
   tomorrow: Date;
   projects: IProject[];
   usersList: IUser[];
@@ -54,7 +54,7 @@ export class AddTaskComponent implements OnInit {
               private titleCasePipe: TitleCasePipe,
               private router: Router,
               private route: ActivatedRoute) { }
-// check for edits, get projects for select. we see tasks by project now. 
+// check for edits, get projects for select. we see tasks by project now.
 // control comes here for update of task as well.
   ngOnInit() {
     this.projectService.getProjects().subscribe(data => {
@@ -256,7 +256,7 @@ export class AddTaskComponent implements OnInit {
       });
     }
   }
-// updating user when task changes 
+// updating user when task changes
   updateUser() {
     console.log('in update user');
     console.log('lets see if we stil have add task', this.addTask)
